@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: head"> </head>
+    <body>
+
+        <div>
+            
+             <nav th:replace="/fragments/navbar :: nav"> </nav>
+
+            <form th:action="@{/perfil/__${usuario.id}__}" method="post" enctype="multipart/form-data" >  <!--  -->
+
+                <!-- hidden es para decir q estara oculto -->
+
+                <input hidden th:value="${id}" name ="id"> <!-- para que viaje el id  -->
+
+
+                <h2>EDITAR USUARIO</h2> <br>
+
+                
+                
+                <label>Ingrese el nuevo nombre </label>
+                <input th:value="${usuario.nombre}" name="nombre" type="text" placeholder="nombre">
+                <br>
+
+                
+                
+                <label>Ingrese el nuevo email</label>
+                <input th:value="${usuario.email}" name="email" type="email" placeholder="email">
+                <br><!-- comment -->
+
+                
+                
+                <label>Ingrese el archivo <label>
+                        <input  name="archivo" type="file" >
+                        <br><!-- comment -->
+
+
+
+
+                        <label>Ingrese el nuevo password</label>
+                        <input name="password" type="password" placeholder="password">
+                        <br><!-- comment -->
+
+                        <label>Ingrese de nuevo el password</label>
+                        <input name="password2" type="password" placeholder="REPETIR PASSWORD">
+                        <br><!-- comment -->
+
+                        <button type="submit" > ACTUALIZAR </button> 
+
+           </form>
+
+     </div>
+
+
+
+                        </body>
+                        </html>
