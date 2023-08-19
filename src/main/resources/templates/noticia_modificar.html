@@ -1,0 +1,72 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Biblioteca</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/ver_noticia.css">
+         
+    </head>
+
+    <body>
+        <header> 
+            <h1>MODIFICAR NOTICIA!</h1>
+        </header>
+        <div>
+            <form th:action="@{/noticia/modificar/__${noticia.id}__}" method="post" > 
+                
+                
+                <input name="id" type="hidden"  th:value="${noticia.id}" >
+                <br>
+
+                <label class="info" > Ingrese el titulo</label> <br>
+                <input th:value="${noticia.titulo}" name="titulo" type="text" placeholder="Ingrese el titulo">
+                <br>
+
+                <label class="info" >Ingrese el cuerpo </label> <br>
+                <textarea th:value="${noticia.cuerpo}" name="cuerpo" placeholder="cuerpo"></textarea>
+                <br>
+
+                <label class="info" >Ingrese el link de la noticia</label> <br>
+                <textarea th:value="${noticia.link}" name="link" placeholder="url"></textarea>
+                <br>
+
+
+
+                <button type="submit" > MODIFICAR NOTICIA </button> 
+            </form>
+            <div>
+                <a th:href="@{/noticia/lista}" > <button>VOLVER</button> </a>  </td>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div th:if="${error != null}">
+            <div>
+                <h5>ERROR</h5>
+                <p th:text="${error}" ></p>
+            </div>
+
+        </div>
+
+        <div th:if="${exito != null}">
+            <div>
+                <h5>EXITO!</h5>
+                <p  th:text="${exito}"></p>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">EGG</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul  class="nav justify-content-end">
+
+
+                <li class="nav-item">
+                    <a class="nav-link"  th:if="${session.usuariosession == null}"  href="/registrar">REGISTRARME</a>
+                </li> <!-- le decimos, que mientras que el usuario no este autenticado, se va a poder visualizar-->
+
+                <li class="nav-item">
+                    <a class="nav-link"  th:if="${session.usuariosession == null}"  href="/login">INGRESAR</a>
+                </li>
+
+                <li class="nav-item" th:if="${session.usuariosession != null}" >
+                    <a class="nav-link active" aria-current="page" href="/inicio">INICIO</a>
+                </li>
+
+                <li class="nav-item" th:if="${session.usuariosession != null}"  >
+                    <a class="nav-link" href="/libro/lista">LISTA LIBRO</a>
+                    <a class="nav-link"  sec:authorize="hasRole('ADMIN')"   href="/libro/registrar">CREAR LIBRO</a> 
+                </li>
+                <li class="nav-item"  th:if="${session.usuariosession != null}"  >
+                    <a class="nav-link" href="/autor/lista">LISTA AUTOR</a> 
+                    <a class="nav-link" sec:authorize="hasRole('ADMIN')"  href="/autor/registrar">CREAR AUTOR</a> 
+                </li>
+
+                <li class="nav-item"  th:if="${session.usuariosession != null}"  >
+                    <a class="nav-link" sec:authorize="hasRole('ADMIN')"  href="/admin/usuarios">LISTA USUARIOS</a> 
+                </li>
+
+
+
+
+
+
+
+                <li class="nav-item" th:if="${session.usuariosession != null}" >
+
+                    <a class="nav-link" href="#">PERFIL</a>
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout" > CERRAR SESION </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

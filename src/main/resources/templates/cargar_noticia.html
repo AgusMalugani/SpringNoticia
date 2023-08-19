@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Biblioteca</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/ver_noticia.css">
+       
+    </head>
+
+    <body>
+        <header> 
+            <h1>CARGAR NOTICIA!</h1>
+        </header>
+        <div>
+            <form action="/noticia/registro" method="post" > 
+                <label class="info" >Ingrese el id de la noticia</label> <br>
+                <input name="id" type="number" placeholder="Ingrese el id">
+                <br>
+
+                <label class="info" > Ingrese el titulo</label> <br>
+                <input name="titulo" type="text" placeholder="Ingrese el titulo">
+                <br>
+
+                <label class="info" >Ingrese el cuerpo de la noticia</label> <br>
+                <textarea name="cuerpo" placeholder="cuerpo"></textarea>
+                <br>
+
+                <label class="info" >Ingrese el link de la noticia</label> <br>
+                <textarea name="link" placeholder="url"></textarea>
+                <br>
+
+
+
+                <button type="submit" > Crear noticia </button> 
+              
+            </form>
+        </div>
+
+
+
+
+
+
+
+        <div th:if="${error != null}">
+            <div>
+                <h5>ERROR</h5>
+                <p th:text="${error}" ></p>
+            </div>
+
+        </div>
+
+        <div th:if="${exito != null}">
+            <div>
+                <h5>EXITO!</h5>
+                <p  th:text="${exito}"></p>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+    </body>
+</html>

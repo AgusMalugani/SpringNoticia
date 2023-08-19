@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    </head>
+    <body>
+        <div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th>TITULO</th>
+                        <th>CUERPO</th>
+                        <th>LINK</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody th:each="noticia : ${noticias}">
+                    <tr> 
+                        <!-- <th th:text="${noticia.id}"></th> -->
+                        <td th:text="${noticia.titulo}" ></td>
+                        <td th:text="${noticia.cuerpo}"  ></td>
+                        <td >  <a th:href="${noticia.link}" > <button> LINK NOTICIA </button> </a> </td>
+                        <td>  <a th:href="@{/noticia/modificar/__${noticia.id}__}" > <button>MODIFICAR</button>  </a> 
+                          <a th:href="@{/noticia/eliminar/__${noticia.id}__}" > <button>ELIMINAR</button>  </a> </td>
+
+                    </tr>
+
+
+
+
+
+                </tbody>
+
+
+
+            </table>
+            <td> <a href="/" > <button>VOLVER</button> </a>  </td>
+
+        </div>
+    </body>
+</html>
